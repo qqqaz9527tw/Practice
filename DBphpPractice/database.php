@@ -12,4 +12,3 @@ try{
     echo $error_message;
     exit();
 }
-?>
