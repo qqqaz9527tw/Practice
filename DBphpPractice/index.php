@@ -21,7 +21,7 @@ $city = filter_input(INPUT_GET, "city", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="main.css">
     <title>PDO Practice</title>
 </head>
 
@@ -41,7 +41,7 @@ $city = filter_input(INPUT_GET, "city", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         <?php if(!$city && !$newcity) {?>
             <section>
                 <h2>Select Data / Read Data</h2>
-                <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="GET">
+                <form action="." method="GET">
                     <label for="city">City Name:</label>
                     <input type="text" id="city" name="city" required>
                     <button>Submit</button>
@@ -50,7 +50,7 @@ $city = filter_input(INPUT_GET, "city", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             <section>
                 <h2>Insert Data / Create Date</h2>
-                <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+                <form action="." method="POST">
                     <label for="newcity">City Name:</label>
                     <input type="text" id="newcity" name="newcity" required>
                     <label for="countrycode">Country Code:</label>
@@ -67,7 +67,6 @@ $city = filter_input(INPUT_GET, "city", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
             <?php
                 if($newcity) {
-                    // isset($newpopulation['population'])? $newpopulation['population']: '';
                     $query = 'INSERT INTO city
                                 (Name, CountryCode, District, Population)
                                 VALUES
@@ -126,14 +125,14 @@ $city = filter_input(INPUT_GET, "city", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                         
                     <form class="delete" action="delete_record.php" method="POST">
                         <input type="hidden" name="id" value="<?php echo $id ?>">
-                        <button class="red">Deelete</button>
+                        <button class="red">Delete</button>
                     </form>
                 <?php }?>
                 </session>
             <?php } else { ?>
                 <p>Sorry, no results.</p>
             <?php } ?>
-            <a href="<?php echo $_SERVER['PHP_SELF'] ?>">Go To Request Forms</a>
+            <a href=".">Go To Request Forms</a>
             <!-- //↑同個城市名可能會出現多個，要解決重複id這個問題 -->
         <?php } ?>
     </main>
