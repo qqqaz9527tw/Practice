@@ -1,0 +1,15 @@
+<?php
+$dsn = 'mysql:host=localhost:8889;dbname=world'; //dsn=data source name
+$username = 'root';
+// $password = '9527';
+
+try{
+    $db = new PDO($dsn, $username);
+    //$db = new PDO($dsn, $username, $password);
+}catch (PDOException $e){
+    $error_message = 'Database Error: ';
+    $error_message .= $e->getMessage();
+    include('view/error.php');
+    exit();
+}
+ 
