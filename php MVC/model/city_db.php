@@ -50,6 +50,7 @@ function update_city($id, $city, $countrycode, $district, $population)
         $count = $statement->rowCount();
     };
     $statement->closeCursor();
+    return $count;
 }
 
 function delete_city($id)
