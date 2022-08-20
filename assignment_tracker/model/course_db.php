@@ -14,7 +14,7 @@
             return "All Courses";
         }
         global $db;
-        $query = 'SELECT * FROM courses WHERE courseID = :course_ID';
+        $query = 'SELECT * FROM courses WHERE courseID = :course_id';
         $statement = $db->prepare($query);
         $statement->bindValue(':course_id', $course_id);
         $statement->execute();
@@ -26,7 +26,7 @@
 
     function delete_course($course_id) {
         global $db;
-        $query = 'DELETE FROM courses WHERE courseID = course_id';
+        $query = 'DELETE FROM courses WHERE courseID = :course_id';
         $statement = $db->prepare($query);
         $statement->bindValue(':course_id', $course_id);
         $statement->execute();
@@ -35,7 +35,7 @@
 
     function add_course($course_name){
         global $db;
-        $query = 'DELETE FROM courses (courseName) VALUES (:courseName)';
+        $query = 'INSERT INTO courses (courseName) VALUES (:courseName)';
         $statement = $db->prepare($query);
         $statement->bindValue(':courseName', $course_name);
         $statement->execute();
